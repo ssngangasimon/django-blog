@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
+{% extends 'blog/base.html' %}
 
-<body>
-    <h1>Welcome to My Blog</h1>
-    <a href="{% url 'about' %}">About</a>
-</body>
+{% block title %}Home{% endblock %}
 
-</html>
+{% block content %}
+<h2>Blog Posts</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.id %}">
+                {{ post.title }}
+            </a> by {{ post.author }}
+        </li>
+    {% empty %}
+        <li>No posts found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
