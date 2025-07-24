@@ -22,6 +22,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
+    image = models.ImageField(upload_to='post/images', blank=True, null=True)
 
     def __str__(self):
         return self.title
