@@ -9,7 +9,7 @@
         <li>
             <a href="{% url 'post_detail' post.id %}">
                 {{ post.title }}
-            </a> by {{ post.author }}
+            </a> by {{ post.author.username }}
         </li>
     {% empty %}
         <li>No posts found.</li>
